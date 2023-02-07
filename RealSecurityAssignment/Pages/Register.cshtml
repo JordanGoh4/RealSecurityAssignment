@@ -1,0 +1,95 @@
+﻿@page
+@model RealSecurityAssignment.Pages.RegisterModel
+@{
+}
+<div class="container mt-5">
+
+	<div class="row justify-content-center align-items-center">
+
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<h1 class="mb-3">Register </h1>
+
+			<form method="post" enctype="multipart/form-data">
+				<div asp-validation-summary="All" class="text-danger"></div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Name">Full Name</label>
+					<input type="Text" asp-for="RModel.Name" class="form-control" />
+					<span asp-validaton-for="RModel.Name" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Credit">Credit Card Number</label>
+					<input type="Text" asp-for="RModel.Credit" class="form-control" />
+					<span asp-validaton-for="RModel.Credit" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Gender">Gender</label>
+					<input type="Text" asp-for="RModel.Gender" class="form-control" />
+					<span asp-validaton-for="RModel.Gender" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Mobile">Mobile Number</label>
+					<input type="Text" asp-for="RModel.Mobile" class="form-control" />
+					<span asp-validaton-for="RModel.Email" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Address">Address</label>
+					<input type="Text" asp-for="RModel.Address" class="form-control" />
+					<span asp-validaton-for="RModel.Address" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="Upload">Photo (.JPG)</label>
+					<input type="file" asp-for="Upload" class="form-control" accept=".jpg" required/>
+					<span asp-validaton-for="Upload" class="text-danger"></span>
+				</div>
+
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.About">About Me</label>
+					<input type="Text" asp-for="RModel.About" class="form-control" />
+					<span asp-validaton-for="RModel.About" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Email">Email Address</label>
+					<input type="Text" asp-for="RModel.Email" class="form-control" />
+					<span asp-validaton-for="RModel.Email" class="text-danger"></span>
+				</div>
+				
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.Password">Password</label>
+					<input id="password" type="Text" asp-for="RModel.Password" class="form-control" />
+					<span asp-validaton-for="RModel.Password" class="text-danger" ></span>
+					<p id="passwordValid"></p>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="RModel.ConfirmPassword">Confirm Password</label>
+					<input type="Text" asp-for="RModel.ConfirmPassword" class="form-control" />
+					<span asp-validaton-for="RModel.ConfirmPassword" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<button type="submit" class="btn btn-primary">Register</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	$("#password").on("input", function(){
+		var regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!$%^&*-]).{12,}$/.test($("#password").val())
+		console.log(regex)
+		console.log($("#password").val())
+		if(regex == true){
+			$("#passwordValid").text("Password meet requirements")
+		}else{
+			$("#passwordValid").text("Password does not meet requirements")
+		}
+	});
+</script>

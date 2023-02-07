@@ -1,0 +1,18 @@
+﻿@page
+@model RealSecurityAssignment.Pages.ProfileModel
+@{
+}
+<p>Full Name: @Model._User.Name</p>
+<p>Credit Card: @Model._User.Credit</p>
+<p>Gender: @Model._User.Gender</p>
+<p>Phone Number: @Model._User.PhoneNumber</p>
+<p>Address: @Model._User.Address</p>
+<p>Email: @Model._User.Email</p>
+<p>Photo: @Model._User.Photo</p>
+<p>About: @Model._User.About</p>
+<img id="imgPreview" class="rounded-circle"
+	 style="height:300px;width:300px;object-fit:cover"
+	 src="@(string.IsNullOrEmpty(@Model._User.Photo) ?
+									"/uploads/student.png" : @Model._User.Photo)"
+	 onerror="this.src='/uploads/student.png'" />
+<a asp-page="/ChangePassword" asp-route-id="@Model._User.Email">Change Password</a>

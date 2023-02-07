@@ -1,0 +1,78 @@
+﻿@page
+@model RealSecurityAssignment.Pages.GoogleModel
+@{
+}
+<div class="container mt-5">
+
+	<div class="row justify-content-center align-items-center">
+
+		<div class="col-sm-12 col-md-12 col-lg-4">
+			<h1 class="mb-3">Register </h1>
+
+			<form method="post" enctype="multipart/form-data">
+				<div asp-validation-summary="All" class="text-danger"></div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="Name">Full Name</label>
+					<input type="Text" asp-for="Name" class="form-control" readonly/>
+					<span asp-validaton-for="Name" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="Credit">Credit Card Number</label>
+					<input type="Text" asp-for="Credit" class="form-control" />
+					<span asp-validaton-for="Credit" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="Gender">Gender</label>
+					<input type="Text" asp-for="Gender" class="form-control" />
+					<span asp-validaton-for="Gender" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="Mobile">Mobile Number</label>
+					<input type="Text" asp-for="Mobile" class="form-control" />
+					<span asp-validaton-for="Email" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="Address">Address</label>
+					<input type="Text" asp-for="Address" class="form-control" />
+					<span asp-validaton-for="Address" class="text-danger"></span>
+				</div>
+
+
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="About">About Me</label>
+					<input type="Text" asp-for="About" class="form-control" />
+					<span asp-validaton-for="About" class="text-danger"></span>
+				</div>
+
+				<div class="mb-3">
+					<label class="form-label" asp-for="Email">Email Address</label>
+					<input type="Text" asp-for="Email" class="form-control" readonly/>
+					<span asp-validaton-for="Email" class="text-danger"></span>
+				</div>
+				
+
+				<div class="mb-3">
+					<button type="submit" class="btn btn-primary">Register</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<script>
+	$("#password").on("input", function(){
+		var regex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!$%^&*-]).{12,}$/.test($("#password").val())
+		console.log(regex)
+		console.log($("#password").val())
+		if(regex == true){
+			$("#passwordValid").text("Password meet requirements")
+		}else{
+			$("#passwordValid").text("Password does not meet requirements")
+		}
+	});
+</script>
